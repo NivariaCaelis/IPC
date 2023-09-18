@@ -1,0 +1,47 @@
+# Name of the action
+name: Testing
+
+# When to trigger the actions
+on: [push, pull_request]
+
+# Env in which to run the action
+env:
+  BUILD_TYPE: Release
+
+
+# Jobs that must be performed
+jobs:
+        
+  # Build and tests the project
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+    
+    # Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    # Install CMake
+    - name: Set up CMake
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake 
+        
+    # Install GTest
+    - name: Install GTest
+      run: |
+        sudo apt-get install -y libgtest-dev
+        
+    # Configure CMake
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      
+    # Build the project
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      
+    # Run CTest
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: ctest -C ${{env.BUILD_TYPE}} -V
+
