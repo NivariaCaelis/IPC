@@ -22,7 +22,7 @@ TEST(Socket, BasicTest) {
   addr_t addr = create_addr(ipAddr, port);
   Socket sock(addr);
   
-  EXPECT_EQ(sock.get_status(), STATUS_NOT_OPEN);
+  EXPECT_EQ(sock.get_status(), 32);
 }
 
 
