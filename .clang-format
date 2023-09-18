@@ -1,0 +1,61 @@
+# .clang-format
+
+# Language options
+Language: Cpp
+
+# Formatting style options
+BasedOnStyle: Google
+IndentWidth: 2
+UseTab: Never
+AccessModifierOffset: 0
+ColumnLimit: 120
+MaxEmptyLinesToKeep: 2
+
+# Allow short blocks on a single line
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+
+# Control block formatting
+BreakBeforeBraces: Attach
+
+BraceWrapping:
+  AfterClass:      true
+  AfterControlStatement: true
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterObjCDeclaration: true
+  AfterStruct:     true
+  AfterUnion:      true
+  BeforeCatch:     true
+  BeforeElse:      true
+
+# Line breaking options
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: All
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: AfterColon
+
+# Spaces in parentheses and square brackets
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Pointer and reference alignment
+PointerAlignment: Left
+AlignAfterOpenBracket: DontAlign
+AlignConsecutiveDeclarations: true
+
+# Trailing commas
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Align trailing comments
+CommentPragmas: ''
+ReflowComments: false
+AlignTrailingComments: true
